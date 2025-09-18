@@ -8,11 +8,26 @@ team:
   createDate: "2026-07-01"
 
 
+#spring:
+#  servlet:
+#    multipart:
+#      max-file-size: 10MB     # 单个上传⽂件⼤⼩限定为10M，默认值为1M
+#      max-request-size: 100MB # 单次上传⽂件⼤⼩限定为100M，默认值为10M
+
 spring:
-  servlet:
-    multipart:
-      max-file-size: 10MB     # 单个上传⽂件⼤⼩限定为10M，默认值为1M
-      max-request-size: 100MB # 单次上传⽂件⼤⼩限定为100M，默认值为10M
+  mail:
+    host: smtp.qq.com
+    username: 1217663021@qq.com
+    password: exsqjykkdkqmbahd
+    protocol: smtp
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.port: 465
+    properties.mail.display.sendmail: Spring Boot
+    properties.mail.display.sendname: Spring Boot Email
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    properties.mail.smtp.ssl.enable: true
+    default-encoding: utf-8
 
 custom:
   qrcode:
