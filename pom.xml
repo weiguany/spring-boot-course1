@@ -25,6 +25,10 @@
         <module>spring-boot-quickstart</module>
         <module>spring-boot-config</module>
         <module>spring-boot-mp</module>
+        <module>spring-boot-exception</module>
+        <module>spring-boot-book</module>
+        <module>spring-boot-redis</module>
+        <module>spring-boot-filter-interceptor</module>
         <!--        <module>spring-boot-config</module>-->
     </modules>
     <scm>
@@ -40,6 +44,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mybatis-plus.version>3.5.7</mybatis-plus.version>
         <mysql.version>8.3.0</mysql.version>
+        <datafaker.version>2.2.2</datafaker.version>
+        <fastjson2.version>2.0.47</fastjson2.version>
+        <!-- 定义 datafaker 的版本号（关键） -->
+        <datafaker.version>2.2.2</datafaker.version> <!-- 这是当前较新的稳定版本 -->
     </properties>
 
     <dependencies>
@@ -75,7 +83,10 @@
             <version>1.0.4</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+        </dependency>
 
     </dependencies>
 
@@ -92,6 +103,14 @@
                 <artifactId>mysql-connector-j</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>net.datafaker</groupId>
+                <artifactId>datafaker</artifactId>
+                <version>${datafaker.version}</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 
@@ -101,6 +120,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!-- 去除JVM警告 -->
+                    <argLine>-Xshare:off</argLine>
+                    <argLine>@{argLine} -javaagent:${org.mockito:mockito-core:jar}</argLine>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 

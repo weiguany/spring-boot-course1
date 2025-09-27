@@ -1,4 +1,6 @@
-package top.wgy.boot.mp.mapper;
+package top.wgy.boot.mp.service;
+
+
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
