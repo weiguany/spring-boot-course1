@@ -29,6 +29,8 @@
         <module>spring-boot-book</module>
         <module>spring-boot-redis</module>
         <module>spring-boot-filter-interceptor</module>
+        <module>spring-boot-shahe</module>
+        <module>spring-boot-schedule</module>
         <!--        <module>spring-boot-config</module>-->
     </modules>
     <scm>
