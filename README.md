@@ -1,4 +1,11 @@
 # 学习spring boot
 
 
-## spring-boot-schedule 定时任务模块
+# 定时任务模块
+
+
+## spring-boot-schedule
+## 自定义定时任务类
+## 定时任务线程池配置
+## 示例 1：每日天气早报（调用第三方 API+邮件推送）
+## 示例 2：凌晨数据库备份（本地+远程存储）

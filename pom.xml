@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <!-- 继承Spring Boot父工程 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.5.5</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/> <!-- 从仓库查找父工程 -->
     </parent>
+
+    <!-- 项目基本信息 -->
     <groupId>top.wgy</groupId>
     <artifactId>spring-boot-course</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>pom</packaging> <!-- 聚合工程，打包类型为pom -->
     <name>spring-boot-course</name>
-    <description>spring-boot-course</description>
-    <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
+    <description>Spring Boot 课程学习案例工程</description>
+
+    <!-- 子模块配置 -->
     <modules>
         <module>spring-boot-quickstart</module>
         <module>spring-boot-config</module>
@@ -31,15 +31,9 @@
         <module>spring-boot-filter-interceptor</module>
         <module>spring-boot-shahe</module>
         <module>spring-boot-schedule</module>
-        <!--        <module>spring-boot-config</module>-->
     </modules>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
 
+    <!-- 版本属性配置 -->
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -48,80 +42,154 @@
         <mysql.version>8.3.0</mysql.version>
         <datafaker.version>2.2.2</datafaker.version>
         <fastjson2.version>2.0.47</fastjson2.version>
-        <!-- 定义 datafaker 的版本号（关键） -->
-        <datafaker.version>2.2.2</datafaker.version> <!-- 这是当前较新的稳定版本 -->
+        <okhttp3.version>4.12.0</okhttp3.version>
+        <!-- 新增邮件相关版本管理，实际由Spring Boot parent控制 -->
+        <spring-boot-mail.version>3.5.5</spring-boot-mail.version>
+        <!-- 添加Apache Commons Exec第三方库，来更方便地执行和管理外部进程 -->
+        <commons-exec.version>1.3</commons-exec.version>
+        <!-- 系统监控工具（获取CPU/内存信息） -->
+        <oshi-core.version>6.4.0</oshi-core.version>
     </properties>
 
+    <!-- 公共依赖配置 -->
     <dependencies>
-        <!--  lombok-->
+        <!-- Lombok 工具 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
+        <!-- Spring Boot Web starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- 测试依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <!--        配置热部署-->
+        <!-- 热部署依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
 
-
+        <!-- 短信SDK -->
         <dependency>
             <groupId>com.cloopen</groupId>
             <artifactId>java-sms-sdk</artifactId>
             <version>1.0.4</version>
         </dependency>
 
+        <!-- Spring Security 加密工具 -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-crypto</artifactId>
         </dependency>
 
+        <!-- 新增：HTTP客户端（调用第三方API） -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+        </dependency>
+
+        <!-- 新增：Spring Mail（发送邮件） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+        <!-- 新增：fastjson2（JSON处理） -->
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+        </dependency>
     </dependencies>
 
+    <!-- 依赖版本管理 -->
     <dependencyManagement>
         <dependencies>
+            <!-- MyBatis-Plus -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
 
+            <!-- MySQL 驱动 -->
             <dependency>
                 <groupId>com.mysql</groupId>
                 <artifactId>mysql-connector-j</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
 
+            <!-- 数据模拟工具 -->
             <dependency>
                 <groupId>net.datafaker</groupId>
                 <artifactId>datafaker</artifactId>
                 <version>${datafaker.version}</version>
             </dependency>
 
+            <!-- JSON处理工具 -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson2.version}</version>
+            </dependency>
 
+            <!-- HTTP客户端 -->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp3.version}</version>
+            </dependency>
+
+            <!-- Spring Mail -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-mail</artifactId>
+                <version>${spring-boot-mail.version}</version>
+            </dependency>
+            <!--添加Apache Commons Exec第三方库，来更方便地执行和管理外部进程 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-exec</artifactId>
+                <version>${commons-exec.version}</version>
+            </dependency>
+
+            <!-- 系统监控工具（获取CPU/内存信息） -->
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>6.4.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <!-- 构建配置 -->
     <build>
         <plugins>
+            <!-- Spring Boot 打包插件 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
             </plugin>
+
+            <!-- 测试插件配置 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -131,8 +199,6 @@
                     <argLine>@{argLine} -javaagent:${org.mockito:mockito-core:jar}</argLine>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
-
 </project>
