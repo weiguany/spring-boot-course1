@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
 import oshi.hardware.HardwareAbstractionLayer;
-import oshi.hardware.platform.mac.MacHardwareAbstractionLayer;
+import oshi.hardware.platform.windows.WindowsHardwareAbstractionLayer;
 
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
@@ -34,7 +34,7 @@ public class ServerMonitorService {
     public ServerMonitorService() {
         // Oshi：初始化硬件抽象层（获取CPU/内存信息）
         // Windows 用：WindowsHardwareAbstractionLayer，Linux用：LinuxHardwareAbstractionLayer
-        this.hardware = new MacHardwareAbstractionLayer();
+        this.hardware = new WindowsHardwareAbstractionLayer();
     }
 
     /**
