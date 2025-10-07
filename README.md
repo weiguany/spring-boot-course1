@@ -11,3 +11,8 @@
 ## 示例 2：凌晨数据库备份（本地+远程存储）
 ## 示例 3：每 5 分钟服务健康检查（CPU/内存监控+告警）
 ## 示例 4：重量级定时任务：Quartz 集成实战
+
+
+# Spring Boot 整合 WebSocket
+## WebSocket 基础示例 1
+## WebSocket 基础示例 2
