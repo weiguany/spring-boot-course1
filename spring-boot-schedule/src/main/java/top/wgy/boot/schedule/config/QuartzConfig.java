@@ -21,7 +21,7 @@ public class QuartzConfig {
     @Bean
     public Trigger exportTaskTrigger() {
         // 每周日 18:30:00
-        CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule("0 30 18 ? * SUN");
+        CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule("20 58 13 ? * Tues");
         // 返回任务触发器
         return TriggerBuilder.newTrigger().forJob(exportTaskDetail()).withIdentity("ExportJob").withSchedule(scheduleBuilder).build();
     }

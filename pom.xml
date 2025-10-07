@@ -31,6 +31,7 @@
         <module>spring-boot-filter-interceptor</module>
         <module>spring-boot-shahe</module>
         <module>spring-boot-schedule</module>
+        <module>spring-boot-websocket</module>
     </modules>
 
     <!-- 版本属性配置 -->

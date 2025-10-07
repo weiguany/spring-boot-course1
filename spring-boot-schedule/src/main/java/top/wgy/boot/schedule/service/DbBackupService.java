@@ -22,7 +22,7 @@ public class DbBackupService {
     /**
      * 每日凌晨2:00执行备份
      */
-    @Scheduled(cron = "0 28 1 * * ?")
+    @Scheduled(cron = "50 42 13 * * ?")
     public void backupWithHutool() {
         String host = dbConfig.getHost();
         String user = dbConfig.getUsername();

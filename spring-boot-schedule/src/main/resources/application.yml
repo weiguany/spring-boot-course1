@@ -27,7 +27,7 @@ spring:
     host: smtp.qq.com
     port: 587
     username: 1217663021@qq.com  # 发送方邮箱
-    password: mmqdjchuwwfnjdij  # QQ邮箱SMTP授权码（不是登录密码）
+    password: icjetulzpvwdihag  # QQ邮箱SMTP授权码（不是登录密码）
     properties:
       mail:
         smtp:
@@ -39,9 +39,9 @@ spring:
 # 2. 天气API配置（使用「和风天气」免费API，需自行注册获取Key）
 weather:
   api:
-    key: f70f4ea42aae40a28ac0c2c4f716520  # 和风天气API密钥，前面已申请并复制
+    key: 2108e7f962194da29cd522c2edb6539d  # 和风天气API密钥，前面已申请并复制
     city: 101190101                      # 南京的城市ID（可查和风天气城市列表）
-    url: https://nx5vxmj3ek.re.qweatherapi.com/v7/weather/3d
+    url: https://nx5vxmj8ek.re.qweatherapi.com/v7/weather/3d
 
 # 3. 接收邮件列表
 email:
