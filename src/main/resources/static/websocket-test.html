@@ -131,9 +131,14 @@
 </head>
 <body>
 <div class="container">
+<!--    <div class="header">-->
+<!--        <h1>⏰ WebSocket 时间推送测试</h1>-->
+<!--        <p>WebSocket 连接测试，接收当前时间推送</p>-->
+<!--    </div>-->
+
     <div class="header">
-        <h1>⏰ WebSocket 时间推送测试</h1>
-        <p>WebSocket 连接测试，接收当前时间推送</p>
+        <h1>🌤️ WebSocket 天气推送测试</h1>
+        <p>WebSocket 连接测试，接收实时天气推送</p>
     </div>
 
     <div class="status disconnected" id="status">
@@ -249,8 +254,14 @@
             addMessage('正在连接到简单时间推送服务...');
             websocket = new WebSocket('ws://localhost:8080/ws/time');
 
+            // websocket.onopen = function (event) {
+            //     addMessage('WebSocket 连接成功！每秒将收到当前时间推送');
+            //     updateStatus(true);
+            //     startConnectionTimer();
+            // };
+
             websocket.onopen = function (event) {
-                addMessage('WebSocket 连接成功！每秒将收到当前时间推送');
+                addMessage('WebSocket 连接成功！每5秒将收到天气信息推送');
                 updateStatus(true);
                 startConnectionTimer();
             };

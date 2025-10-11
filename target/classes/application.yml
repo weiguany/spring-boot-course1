@@ -4,3 +4,10 @@ server:
 logging:
   level:
     org.springframework.web.socket: DEBUG
+# 天气API配置（以和风天气为例）
+weather:
+  api:
+    # 实时天气接口地址（替换原3d接口）
+    url: https://nx5vxmj8ek.re.qweatherapi.com/v7/weather/now
+    city: 101190101  # 南京的城市ID
+    key: 2108e7f962194da29cd522c2edb6539d
